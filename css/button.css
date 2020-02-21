@@ -1,0 +1,44 @@
+.game__button {
+  width: 45%;
+  height: 45%;
+  cursor: pointer;
+  opacity: 0.5;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.game__button-green {
+  background: rgb(0, 190, 0);
+}
+
+.game__button-red {
+  background: rgb(255, 0, 0);
+}
+
+.game__button-blue {
+  background: rgb(0, 0, 255);
+}
+
+.game__button-yellow {
+  background: rgb(255, 255, 0);
+}
+
+.game__button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  transition: transform 0.3s, box-shadow 0.2s;
+  box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.2);
+}
+
+.game__button:active {
+  transform: scale(0.9);
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-shadow: none;
+}
+
+.button-mouse-over {
+  opacity: 1;
+  transform: scale(1.1);
+  transition: transform 0.3s, box-shadow 0.2s;
+  box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.2);
+}

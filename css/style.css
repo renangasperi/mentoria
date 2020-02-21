@@ -1,0 +1,38 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  display: grid;
+  grid-template-rows: 10vh 85vh 5vh;
+  grid-template-areas: "header" "game" "footer";
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgba(0, 0, 0, 1);
+}
+
+@media (max-width: 898px) {
+  html,
+  body {
+    grid-template-rows: 15vh 80vh 5vh;
+  }
+}
