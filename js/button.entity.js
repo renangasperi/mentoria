@@ -1,4 +1,4 @@
-export default class {
+export default class Button {
   constructor(data = {}) {
     this.color = data.color;
     this.state = data.state || "CLICKABLE";
@@ -6,18 +6,22 @@ export default class {
   getElement() {
     return document.getElementById(`${this.color}-button`);
   }
-
-  addClickEvent() {
+  addClickEvent(callback) {
     this.getElement().addEventListener("click", function() {
-      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      callback(this);
+      console.log(this.getElement());
     });
   }
-
-  turnOnButton() {
-    const element = this.getElement();
-    element.classList.add("button-mouse-over");
-    setTimeout(() => {
-      element.classList.remove("button-mouse-over");
-    }, 1000);
+  async turnOnButton() {
+    return new Promise(resolve => {
+      const element = this.getElement();
+      element.classList.add("button-mouse-over");
+      setTimeout(() => {
+        element.classList.remove("button-mouse-over");
+        setTimeout(() => {
+          resolve();
+        }, 150);
+      }, 1000);
+    });
   }
 }
