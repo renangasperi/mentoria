@@ -1,26 +1,5 @@
-import ButtonEntity from "./button.entity.js";
+import GameController from './game-controller.js';
 
-const greenButton = new ButtonEntity({ color: "green" });
-const redButton = new ButtonEntity({ color: "red" });
-const blueButton = new ButtonEntity({ color: "blue" });
-const yellowButton = new ButtonEntity({ color: "yellow" });
-/*
-const buttons = {
-  greenButton = new ButtonEntity({ color: "green" }),
-  redButton = new ButtonEntity({ color: "red" }),
-  blueButton = new ButtonEntity({ color: "blue" }),
-  yellowButton = new ButtonEntity({ color: "yellow" }),
-}
-*/
+const startButton = document.getElementById('start-button');
 
-greenButton.addClickEvent();
-redButton.addClickEvent();
-blueButton.addClickEvent();
-yellowButton.addClickEvent();
-
-setInterval(async () => {
-  await greenButton.turnOnButton();
-  await redButton.turnOnButton();
-  await yellowButton.turnOnButton();
-  await blueButton.turnOnButton();
-}, 4600);
+startButton.addEventListener('click', GameController.startGame());

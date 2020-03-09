@@ -12,16 +12,22 @@ export default class Button {
       console.log(this.getElement());
     });
   }
-  async turnOnButton() {
+  async activateButton() {
     return new Promise(resolve => {
       const element = this.getElement();
-      element.classList.add("button-mouse-over");
+      this.turnButtonOn(element);
       setTimeout(() => {
-        element.classList.remove("button-mouse-over");
+        this.turnButtonOff(element);
         setTimeout(() => {
           resolve();
         }, 150);
       }, 1000);
     });
+  }
+  turnButtonOn(element) {
+    element.classList.add("button-mouse-over");
+  }
+  turnButtonOff(element) {
+    element.classList.remove("button-mouse-over");
   }
 }
