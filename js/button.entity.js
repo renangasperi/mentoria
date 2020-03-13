@@ -7,9 +7,8 @@ export default class Button {
     return document.getElementById(`${this.color}-button`);
   }
   addClickEvent(callback) {
-    this.getElement().addEventListener("click", function() {
+    this.getElement().addEventListener("click", () => {
       callback(this);
-      console.log(this.getElement());
     });
   }
   async activateButton() {

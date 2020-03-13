@@ -8,3 +8,9 @@
 - maquina = luz acessa, apagada, delay
 - jogador = aperta o botao > valida > passa pra proxima ou game over
 - classes
+
+09/03
+- começar o jogo, passando um botao aleatorio para o array de sequence
+- checar se o botão da sequencia é igual ao clickado
+- loop de acertar e gerar novo valor
+- nao pode clickar enquanto cpu jogando
