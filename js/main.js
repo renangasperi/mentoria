@@ -1,5 +1,27 @@
-import GameController from './game-controller.js';
+import GameController from "./game-controller.js";
 
-const startButton = document.getElementById('start-button');
+class Main {
+  static start() {
+    const startButton = document.getElementById("start-button");
+    startButton.addEventListener("click", () => {
+      GameController.startGame();
+    });
+  }
+}
 
-startButton.addEventListener('click', () => { GameController.startGame() });
+Main.start();
+
+// Revealing Module
+// const app = (() => {
+//   const start = () => {
+//     const startButton = document.getElementById("start-button");
+//     startButton.addEventListener("click", () => {
+//       GameController.startGame();
+//     });
+//   }
+//   return  {
+//     start
+//   }
+// })()
+
+// app.start()

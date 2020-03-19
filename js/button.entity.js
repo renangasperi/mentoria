@@ -3,6 +3,7 @@ export default class Button {
     this.color = data.color;
     this.state = data.state || "CLICKABLE";
   }
+  // TODO TIRAR TODOS OS BUTTONS DOS NOMES PQ O ADRIANO FALOU Q FICA FEIO
   getElement() {
     return document.getElementById(`${this.color}-button`);
   }
@@ -11,22 +12,36 @@ export default class Button {
       callback(this);
     });
   }
+  addMouseEvent() {
+    const element = this.getElement();
+    this.getElement().addEventListener("mousemove", () => {
+      this.turnButtonOn(element);
+    });
+    this.getElement().addEventListener("mouseleave", () => {
+      this.turnButtonOff(element);
+    });
+  }
   async activateButton() {
     return new Promise(resolve => {
-      const element = this.getElement();
-      this.turnButtonOn(element);
+      this.turnButtonOn();
       setTimeout(() => {
-        this.turnButtonOff(element);
+        this.turnButtonOff();
         setTimeout(() => {
           resolve();
         }, 150);
       }, 1000);
     });
   }
-  turnButtonOn(element) {
+  turnButtonOn() {
+    const element = this.getElement();
     element.classList.add("button-mouse-over");
   }
-  turnButtonOff(element) {
+  turnButtonOff() {
+    const element = this.getElement();
     element.classList.remove("button-mouse-over");
+  }
+  toggleDisabledButton(value) {
+    const element = this.getElement();
+    element.classList.toggle('click--disabled', value);
   }
 }

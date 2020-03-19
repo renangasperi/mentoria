@@ -23,13 +23,6 @@
   background: rgb(255, 255, 0);
 }
 
-.game__button:hover {
-  opacity: 1;
-  transform: scale(1.1);
-  transition: transform 0.3s, box-shadow 0.2s;
-  box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.2);
-}
-
 .game__button:active {
   transform: scale(0.9);
   transition: transform 0.1s, box-shadow 0.2s;

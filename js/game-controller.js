@@ -9,42 +9,51 @@ class GameController {
       new ButtonEntity({ color: "yellow" }),
     ]
     this.buttonsSequence = [];
-    this.round = 0;
+    this.playerMoves = 0;
+    this.buttonsLength = 4;
+    this.addEventClickToButtons();
+    this.addMouseEventsToButtons();
+    //TODO remover todos os eventos
   }
   startGame() {
     this.setInitialValues();
     this.toggleLoseScreen(false);
-    this.addEventClickToButtons();
     this.generateNewItemToSequence();
     this.startSequence();
   }
   setInitialValues() {
     this.buttonsSequence = [];
-    this.round = 0;
+    this.playerMoves = 0;
+    this.buttonsLength = 4;
   }
   addEventClickToButtons() {
     this.buttons.forEach(button => button.addClickEvent(this.checkButtonClick.bind(this)))
   }
+  addMouseEventsToButtons() {
+    this.buttons.forEach(button => button.addMouseEvent());
+  }
   checkButtonClick(buttonClicked) {
-    if (buttonClicked === this.buttonsSequence[this.round]) {
-      this.round++;
+    if (buttonClicked === this.buttonsSequence[this.playerMoves]) {
+      this.playerMoves++;
     } else {
       this.toggleLoseScreen(true);
       return;
     };
-    if (this.buttonsSequence.length === this.round) {
-      this.round = 0;
+    if (this.buttonsSequence.length === this.playerMoves) {
+      this.playerMoves = 0;
       this.generateNewItemToSequence();
       this.startSequence();
       return;
     }
   }
   generateNewItemToSequence() {
-    const newItem = Math.floor(Math.random() * (3 + 1));
+    const newItem = Math.floor(Math.random() * (this.buttonsLength));
     this.buttonsSequence.push(this.buttons[newItem]);
   }
   startSequence() {
+    // TODO Procurar o impacto de usar um await dentro de um for.
     this.togglePointerEvents(true);
+    this.turnOffAllButtons();
     setTimeout(async () => {
       for (const button of this.buttonsSequence) {
         await button.activateButton();
@@ -52,10 +61,14 @@ class GameController {
       this.togglePointerEvents(false);
     }, 1000);
   }
+  turnOffAllButtons() {
+    this.buttons.forEach(button => {
+      button.turnButtonOff();
+    });
+  }
   togglePointerEvents(value) {
     this.buttons.forEach(button => {
-      const element = button.getElement();
-      element.classList.toggle('click--disabled', value);
+      button.toggleDisabledButton(value);
     });
   }
   toggleLoseScreen(value) {
