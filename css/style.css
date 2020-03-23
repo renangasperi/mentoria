@@ -3,9 +3,15 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
   font-size: 10px;
   font-family: "Montserrat", sans-serif;
   color: rgba(255, 255, 255, 0.9);
+}
+
+body {
   display: grid;
   grid-template-rows: 10vh 85vh 5vh;
   grid-template-areas: "header" "game" "footer";
@@ -21,6 +27,7 @@ li {
 h1,
 h2,
 h3,
+h4,
 p {
   margin: 0;
   padding: 0;

@@ -1,27 +1,21 @@
-import GameController from "./game-controller.js";
+import GameController from './game-controller.js';
+import RankingController from './ranking-controller.js'
+import PlayerModalController from './player-modal-controller.js';
 
 class Main {
-  static start() {
-    const startButton = document.getElementById("start-button");
-    startButton.addEventListener("click", () => {
-      GameController.startGame();
+  static startGame() {
+    const startButton = document.getElementById('start-button');
+    startButton.addEventListener('click', () => {
+      PlayerModalController.openModal();
+    });
+  }
+  static handleRanking() {
+    const rankingButton = document.getElementById('ranking-button');
+    rankingButton.addEventListener('click', () => {
+      RankingController.toggleRanking();
     });
   }
 }
 
-Main.start();
-
-// Revealing Module
-// const app = (() => {
-//   const start = () => {
-//     const startButton = document.getElementById("start-button");
-//     startButton.addEventListener("click", () => {
-//       GameController.startGame();
-//     });
-//   }
-//   return  {
-//     start
-//   }
-// })()
-
-// app.start()
+Main.startGame();
+Main.handleRanking();

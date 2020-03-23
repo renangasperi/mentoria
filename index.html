@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./css/game.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <link rel="stylesheet" href="./css/button.css" />
+    <link rel="stylesheet" href="./css/ranking.css" />
+    <link rel="stylesheet" href="./css/player-modal.css" />
     <title>Simon Diamond Game</title>
   </head>
   <body>
@@ -21,7 +23,7 @@
       <nav>
         <ul class="header__nav-list">
           <li class="header__nav-start-btn" id="start-button">Start Game</li>
-          <li class="header__nav-ranking-btn">Ranking</li>
+          <li class="header__nav-ranking-btn" id="ranking-button">Ranking</li>
         </ul>
       </nav>
     </header>
@@ -34,6 +36,23 @@
         <div class="game__button game__button-red" id="red-button"></div>
         <div class="game__button game__button-blue" id="blue-button"></div>
         <div class="game__button game__button-yellow" id="yellow-button"></div>
+      </div>
+      <div class="game-ranking" id="game-ranking">
+        <div class="game-ranking__list-column">
+          <h4 class="game-ranking__list-column-name">Jogador</h4>
+          <h4 class="game-ranking__list-column-name">Pontos</h4>
+        </div>
+        <ul class="game-ranking__list" id="ranking-list">
+          <li class="game-ranking__list-item">
+            <span class="game-ranking__list-item-player">Renan Azevedo Gasperi</span>
+            <span class="game-ranking__list-item-score">1110 Pontos</span>
+          </li>
+        </ul>
+      </div>
+      <div class="player-modal" id="player-modal">
+        <h4 class="player-modal__title">Digite seu nome</h4>
+        <input type="text" class="player-modal__input" id="player-modal-input">
+        <button class="player-modal__btn" id="player-modal-btn">Start Game</button>
       </div>
     </main>
     <footer class="footer">

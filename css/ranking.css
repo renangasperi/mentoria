@@ -1,0 +1,47 @@
+.game-ranking {
+  position: absolute;
+  background: rgba(0,0,0);
+  box-shadow: -10px 0px 20px -10px rgba(200, 200, 200, 0.1);
+  width: 420px;
+  height: 100%;
+  right: -420px;
+  transition: right 1s;
+}
+
+.game-ranking.game-ranking--enabled {
+  right: 0;
+  transition: right 1s;
+}
+
+.game-ranking__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-ranking__list-column {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 40px 20px 40px;
+}
+
+.game-ranking__list-column-name {
+  font-size: 2.3rem;
+}
+
+.game-ranking__list-item {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0px;
+}
+
+.game-ranking__list-item-player {
+  font-size: 1.6rem;
+  width: 16ch;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.game-ranking__list-item-score {
+  font-size: 1.6rem;
+}

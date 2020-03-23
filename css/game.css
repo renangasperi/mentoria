@@ -8,6 +8,7 @@
 }
 
 .game__wrapper {
+  position: relative;
   height: 400px;
   width: 400px;
   padding: 40px;

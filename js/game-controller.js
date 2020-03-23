@@ -1,21 +1,21 @@
-import ButtonEntity from "./button.entity.js";
+import Button from "./button.entity.js";
+import Player from "./player.entity.js";
 
 class GameController {
   constructor() {
     this.buttons = [
-      new ButtonEntity({ color: "green" }),
-      new ButtonEntity({ color: "red" }),
-      new ButtonEntity({ color: "blue" }),
-      new ButtonEntity({ color: "yellow" }),
+      new Button({ color: "green" }),
+      new Button({ color: "red" }),
+      new Button({ color: "blue" }),
+      new Button({ color: "yellow" }),
     ]
     this.buttonsSequence = [];
-    this.playerMoves = 0;
     this.buttonsLength = 4;
     this.addEventClickToButtons();
     this.addMouseEventsToButtons();
-    //TODO remover todos os eventos
   }
-  startGame() {
+  startGame(playerName) {
+    this.setPlayerName(playerName);
     this.setInitialValues();
     this.toggleLoseScreen(false);
     this.generateNewItemToSequence();
@@ -37,10 +37,12 @@ class GameController {
       this.playerMoves++;
     } else {
       this.toggleLoseScreen(true);
+      this.player.addPlayerToLocalStorage();
       return;
     };
     if (this.buttonsSequence.length === this.playerMoves) {
       this.playerMoves = 0;
+      this.player.score++;
       this.generateNewItemToSequence();
       this.startSequence();
       return;
@@ -51,24 +53,23 @@ class GameController {
     this.buttonsSequence.push(this.buttons[newItem]);
   }
   startSequence() {
-    // TODO Procurar o impacto de usar um await dentro de um for.
     this.togglePointerEvents(true);
     this.turnOffAllButtons();
     setTimeout(async () => {
       for (const button of this.buttonsSequence) {
-        await button.activateButton();
+        await button.activate();
       }
       this.togglePointerEvents(false);
     }, 1000);
   }
   turnOffAllButtons() {
     this.buttons.forEach(button => {
-      button.turnButtonOff();
+      button.turnOff();
     });
   }
   togglePointerEvents(value) {
     this.buttons.forEach(button => {
-      button.toggleDisabledButton(value);
+      button.toggleDisabled(value);
     });
   }
   toggleLoseScreen(value) {
@@ -79,6 +80,9 @@ class GameController {
   toggleGrayscale(value) {
     const element = document.getElementById('game-wrapper');
     element.classList.toggle('game__wrapper--disabled', value);
+  }
+  setPlayerName(playerName) {
+    this.player = new Player({ nickname: playerName });
   }
 }
 
