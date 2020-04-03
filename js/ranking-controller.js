@@ -29,7 +29,7 @@ class RankingController {
   createPlayersList() {
     const element = document.getElementById('ranking-list');
     const players = this.getPlayers()
-    const list = player => players.reduce((accumulator, { nickname, score }) => {
+    const list = () => players.reduce((accumulator, { nickname, score }) => {
       accumulator += `
         <li class="game-ranking__list-item">
           <span class="game-ranking__list-item-player">${nickname}</span>

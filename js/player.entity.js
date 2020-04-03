@@ -7,7 +7,7 @@ export default class Player {
   }
   addPlayerToLocalStorage() {
     const players = RankingController.getPlayers() || [];
-    players.push({nickname: this.nickname, score: this.score });
+    players.push({ nickname: this.nickname, score: this.score });
     const playersStringify = JSON.stringify(players)
     localStorage.setItem('players', playersStringify);
   }

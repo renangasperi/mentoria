@@ -15,7 +15,10 @@ class Main {
       RankingController.toggleRanking();
     });
   }
+  static init() {
+    this.startGame();
+    this.handleRanking();
+  }
 }
 
-Main.startGame();
-Main.handleRanking();
+Main.init();

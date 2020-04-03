@@ -1,16 +1,17 @@
 .game-ranking {
   position: absolute;
   background: rgba(0,0,0);
-  box-shadow: -10px 0px 20px -10px rgba(200, 200, 200, 0.1);
+  box-shadow: none;
   width: 420px;
   height: 100%;
   right: -420px;
-  transition: right 1s;
+  transition: right 1s, box-shadow 1.5s;
 }
 
 .game-ranking.game-ranking--enabled {
   right: 0;
   transition: right 1s;
+  box-shadow: -10px 0px 20px -10px rgba(200, 200, 200, 0.1);
 }
 
 .game-ranking__list {
