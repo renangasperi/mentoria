@@ -28,7 +28,10 @@ class RankingController {
   }
   createPlayersList() {
     const element = document.getElementById('ranking-list');
-    const players = this.getPlayers()
+    const players = this.getPlayers();
+    if (players === []) {
+      return;
+    };
     const list = () => players.reduce((accumulator, { nickname, score }) => {
       accumulator += `
         <li class="game-ranking__list-item">
@@ -36,14 +39,14 @@ class RankingController {
           <span class="game-ranking__list-item-score">${score} pontos</span>
         </li>
         `
-      return accumulator
-    }, '')
+      return accumulator;
+    }, '');
     element.innerHTML = list();
   }
   getPlayers() {
     const players = localStorage.getItem('players');
     const playersParsed = JSON.parse(players);
-    return playersParsed;
+    return playersParsed || [];
   }
 }
 

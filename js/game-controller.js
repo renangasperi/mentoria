@@ -74,6 +74,9 @@ class GameController {
   }
   toggleLoseScreen(value) {
     this.toggleGrayscale(value);
+    this.toggleLoseMessage(value);
+  }
+  toggleLoseMessage(value) {
     const element = document.getElementById('game-lose-screen');
     element.classList.toggle('game__lose-screen--show', value);
   }

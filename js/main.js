@@ -6,6 +6,7 @@ class Main {
   static startGame() {
     const startButton = document.getElementById('start-button');
     startButton.addEventListener('click', () => {
+      GameController.toggleLoseMessage(false);
       PlayerModalController.openModal();
     });
   }

@@ -6,6 +6,7 @@
   height: 100%;
   right: -420px;
   transition: right 1s, box-shadow 1.5s;
+  z-index: 2;
 }
 
 .game-ranking.game-ranking--enabled {
