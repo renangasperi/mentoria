@@ -52,6 +52,11 @@
   -webkit-text-stroke-color: rgba(150, 150, 150, 0.8);
 }
 
+@media (max-width: 450px) {
+  .game__lose-screen-title {
+    font-size: 6.5rem;
+  }
+}
 
 @media (max-width: 642px) {
   .game__wrapper {

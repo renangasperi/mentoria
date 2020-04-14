@@ -47,3 +47,12 @@
 .game-ranking__list-item-score {
   font-size: 1.6rem;
 }
+
+@media (max-width: 420px) {
+  .game-ranking {
+    width: 100vw;
+  }
+  .game-ranking__list-column {
+    padding: 40px 35px 20px 35px;
+  }
+}
